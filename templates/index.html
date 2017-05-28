@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<style type="text/css">
+.mount-card {
+	padding-bottom:50px;
+}
+.mount-name {
+	padding-bottom: 20px;
+}
+</style>
+<div class="row">
+    <div class="container">
+        <h1 class="text-center">All Mounts</h1> 
+
+        {% for x in entries %}
+        
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center mount-card">
+            <h4 class="mount-name">{{x.name}}</h4>
+            <img class="thumbnail img-responsive center-block" src="http://wow.zamimg.com/images/wow/icons/large/{{x.icon | safe}}.jpg"> {% if x.isFlying %}
+            <i>*flying mount</i> {% endif %}
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
